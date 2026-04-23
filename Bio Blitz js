@@ -1,0 +1,137 @@
+// Questions Array
+const questions = [
+    {
+        question: "What is the basic unit of life?",
+        options: ["Tissue", "Cell", "Organ", "System"],
+        answer: "Cell"
+    },
+    {
+        question: "Which organelle controls the cell?",
+        options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+        answer: "Nucleus"
+    },
+    {
+        question: "What carries genetic information?",
+        options: ["Protein", "DNA", "Lipid", "Carbohydrate"],
+        answer: "DNA"
+    }
+];
+
+let currentQuestion = 0;
+
+// Load Question
+function loadQuestion() {
+    document.getElementById("question").innerText =
+        questions[currentQuestion].question;
+
+    let buttons = document.querySelectorAll(".options button");
+
+    buttons.forEach((btn, index) => {
+        btn.innerText =
+            String.fromCharCode(65 + index) + ". " +
+            questions[currentQuestion].options[index];
+    });
+
+    document.getElementById("result").innerText = "";
+}
+
+// Check Answer
+function checkAnswer(option) {
+    let selected =
+        questions[currentQuestion].options[
+            option.charCodeAt(0) - 65
+        ];
+
+    if (selected === questions[currentQuestion].answer) {
+        document.getElementById("result").innerText = "✅ Correct!";
+    } else {
+        document.getElementById("result").innerText =
+            "❌ Wrong! Correct answer: " +
+            questions[currentQuestion].answer;
+    }
+}
+// Questions Array
+const questions = [
+    {
+        question: "What is the basic unit of life?",
+        options: ["Tissue", "Cell", "Organ", "System"],
+        answer: "Cell"
+    },
+    {
+        question: "Which organelle controls the cell?",
+        options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+        answer: "Nucleus"
+    },
+    {
+        question: "What carries genetic information?",
+        options: ["Protein", "DNA", "Lipid", "Carbohydrate"],
+        answer: "DNA"
+    }
+];
+
+let currentQuestion = 0;
+
+// Load Question
+function loadQuestion() {
+    document.getElementById("question").innerText =
+        questions[currentQuestion].question;
+
+    let buttons = document.querySelectorAll(".options button");
+
+    buttons.forEach((btn, index) => {
+        btn.innerText =
+            String.fromCharCode(65 + index) + ". " +
+            questions[currentQuestion].options[index];
+    });
+
+    document.getElementById("result").innerText = "";
+}
+
+// Check Answer
+function checkAnswer(option) {
+    let selected =
+        questions[currentQuestion].options[
+            option.charCodeAt(0) - 65
+        ];
+
+    if (selected === questions[currentQuestion].answer) {
+        document.getElementById("result").innerText = "✅ Correct!";
+    } else {
+        document.getElementById("result").innerText =
+            "❌ Wrong! Correct answer: " +
+            questions[currentQuestion].answer;
+    }
+}
+
+// Next Question
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    } else {
+        document.getElementById("question").innerText =
+            "🎉 Quiz Finished!";
+        document.querySelector(".options").innerHTML = "";
+        document.getElementById("result").innerText = "";
+    }
+}
+
+// Load first question on start
+window.onload = loadQuestion;
+// Next Question
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    } else {
+        document.getElementById("question").innerText =
+            "🎉 Quiz Finished!";
+        document.querySelector(".options").innerHTML = "";
+        document.getElementById("result").innerText = "";
+    }
+}
+
+// Load first question on start
+window.onload = loadQuestion;
